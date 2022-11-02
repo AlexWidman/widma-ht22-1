@@ -17,6 +17,11 @@ class DinnerModel{
         
         // when this is done the TW1.1 DinnerModel "can set the number of guests" should pass
         // also "number of guests is a positive integer"
+
+        if (nr < 1 || !Number.isInteger(nr)){
+            throw new Error("number of guests not a positive integer");
+        }
+        this.numberOfGuests = nr;
     }
     addToMenu(dishToAdd){
         // array spread syntax example. Make sure you understand the code below.
