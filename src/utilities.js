@@ -3,6 +3,18 @@ function compareIngredientsCB(ingredientA, ingredientB){
     // each ingredient object has aisle and name properties.
     // TODO: compare ingredients by supermarket aisle. If the aisles are the same, compare them by name
     // see Array.sort() documentation
+    if (ingredientA.aisle < ingredientB.aisle){
+        return -1;
+    }
+    if (ingredientA.aisle > ingredientB.aisle){
+        return 1;
+    }
+    if (ingredientA.name < ingredientB.name){
+        return -1;
+    }
+    if (ingredientA.name > ingredientB.name){
+        return 1;
+    }
 }
 
 
@@ -11,7 +23,7 @@ function compareIngredientsCB(ingredientA, ingredientB){
   Note that sort() will change the original array. To avoid that, use [...ingredients] which creates a new array and spreads the elements of the `ingredients` array.
 */
 function sortIngredients(ingredients){
-    return // TODO
+    return [...ingredients].sort(compareIngredientsCB)
 }
 
 // helper object for isKnownType and dish sorting

@@ -35,8 +35,9 @@ class DinnerModel{
             // TODO return true if the id property of dish is _different_ from the dishToRemove's id property
             // This will keep the dish when we filter below.
             // That is, we will not keep the dish that has the same id as dishToRemove (if any)
+            return dish.id !== dishToRemove.id;
         }
-        this.dishes= this.dishes.filter(/*TODO pass the callback!*/);
+        this.dishes= this.dishes.filter(hasSameIdCB);
         // the test "can remove dishes" should pass
     }
     /* 
@@ -46,9 +47,8 @@ class DinnerModel{
        So we store also abstract data that will influence the application status.
      */
     setCurrentDish(id){
-        //this.currentDish=TODO
+        this.currentDish= id;
     }
-
 }
 
 export default DinnerModel;
