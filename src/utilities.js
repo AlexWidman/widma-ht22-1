@@ -55,7 +55,7 @@ function dishType(dish){
    Write a sort() comparator callback that compares dishes by their type, 
    so that all starters come before main courses and main courses come before desserts 
 */
-function __give_a_proper_name_CB(dishA, dishB){
+function compareDishTypeRankingCB(dishA, dishB){
     // use dishType(dishA) and dishType(dishB)
     // use dishTypeRanking to convert these types to integers
     // once you know the integers, simply compare them
@@ -68,7 +68,7 @@ function __give_a_proper_name_CB(dishA, dishB){
    Sort the dishes using the comparator callback above.
 */
 function sortDishes(dishes){
-    return [...dishes].sort(__give_a_proper_name_CB);
+    return [...dishes].sort(compareDishTypeRankingCB);
 }
 
 /* 
