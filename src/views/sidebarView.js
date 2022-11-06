@@ -15,17 +15,23 @@ function SidebarView(props){
             onClick={plusButtonClickACB}
         >+</button>
         {
-            renderDishes(props.dishes, props.number)
+            renderDishes(props.dishes, props.number, props.onRemoveDish, props.onShowDetails)
         }
     </div>
     );
 }
 
-function renderDishes(dishArray, guests){
+function renderDishes(dishArray, guests, removeDish, showDetails){
     function dishTableRowCB(dish){
+        function xButtonClickACB(){ removeDish(dish)}
+        function dishNameClickACB(){ showDetails(dish)}
         return <tr key={dish.id}>
-            <button>x</button>
-            <td>{dish.title}</td>
+            <td><button
+                onClick={xButtonClickACB}>
+                x</button></td>
+            <td><a href="#"
+                onClick={dishNameClickACB}>
+                {dish.title}</a></td>
             <td class="center">{dishType(dish)}</td>
             <td class="right">{(dish.pricePerServing * guests).toFixed(2)}</td></tr>;
     }
@@ -50,4 +56,3 @@ function renderDishes(dishArray, guests){
 }
 
 export default SidebarView;
-export {renderDishes};   // we export so that tests can analyze the source code
